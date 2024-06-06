@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Суперглобальні змінні PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Суперглобальні змінні PHP</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Позначення змінної</th>
+            <th>Характеристика</th>
+            <th>Отримане значення</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$_SERVER['SERVER_PROTOCOL']</td>
+            <td>Змінна містить ім’я і версію інформаційного протоколу, який був використаний для запиту</td>
+            <td><?php echo htmlspecialchars($_SERVER['SERVER_PROTOCOL']); ?></td>
+        </tr>
+        <tr>
+            <td>$_SERVER['SERVER_NAME']</td>
+            <td>Ім'я хоста сервера, на якому виконується поточний скрипт</td>
+            <td><?php echo htmlspecialchars($_SERVER['SERVER_NAME']); ?></td>
+        </tr>
+        <tr>
+            <td>$_SERVER['REQUEST_METHOD']</td>
+            <td>Метод запиту, який був використаний для доступу до сторінки (наприклад, GET, POST)</td>
+            <td><?php echo htmlspecialchars($_SERVER['REQUEST_METHOD']); ?></td>
+        </tr>
+        <tr>
+            <td>$_SERVER['REQUEST_URI']</td>
+            <td>URI, яка була надана для доступу до сторінки</td>
+            <td><?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?></td>
+        </tr>
+        <tr>
+            <td>$_GET</td>
+            <td>Масив змінних, переданих скрипту через параметри URL (запити GET)</td>
+            <td><?php echo htmlspecialchars(print_r($_GET, true)); ?></td>
+        </tr>
+        <tr>
+            <td>$_POST</td>
+            <td>Масив змінних, переданих скрипту через HTTP POST</td>
+            <td><?php echo htmlspecialchars(print_r($_POST, true)); ?></td>
+        </tr>
+        <tr>
+            <td>$_FILES</td>
+            <td>Масив завантажених файлів через HTTP POST</td>
+            <td><?php echo htmlspecialchars(print_r($_FILES, true)); ?></td>
+        </tr>
+        <tr>
+            <td>$_COOKIE</td>
+            <td>Масив змінних, переданих скрипту через HTTP Cookies</td>
+            <td><?php echo htmlspecialchars(print_r($_COOKIE, true)); ?></td>
+        </tr>
+        <tr>
+            <td>$_SESSION</td>
+            <td>Масив змінних сесії</td>
+            <td><?php
+                session_start();
+                echo htmlspecialchars(print_r($_SESSION, true));
+            ?></td>
+        </tr>
+        <tr>
+            <td>$_REQUEST</td>
+            <td>Масив змінних, переданих скрипту через HTTP GET, POST та Cookies</td>
+            <td><?php echo htmlspecialchars(print_r($_REQUEST, true)); ?></td>
+        </tr>
+        <tr>
+            <td>$_ENV</td>
+            <td>Масив змінних середовища</td>
+            <td><?php echo htmlspecialchars(print_r($_ENV, true)); ?></td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="scripts.js"></script>
+</body>
+</html>
